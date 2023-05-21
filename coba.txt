@@ -1,0 +1,38 @@
+let table;
+    $(function () {
+        table = $('.table').DataTable({
+            processing: true,
+            autoWidth: false,
+            ajax: {
+                url: '{{ route('kategori.data') }}',
+            },
+            columns: [
+                {data: 'DT_RowIndex', searchable: false, sortable: false}
+                {data: 'nama_kategori'},
+            ]
+        });
+
+        $('#modal-form').validator().on('submit', function (e) {
+            if (! e.preventDefault()) {
+                $.post($('#modal-form form').attr('action'), $('#modal-form form').serialize())
+                    .done((response) => {
+                        $('#modal-form').modal('hide');
+                        table.ajax.reload();
+                    })
+                    .fail((errors) => {
+                        alert('Tidak dapat menyimpan data');
+                        return;
+                    });
+            }
+        });
+    });
+
+    function addForm(url) {
+        $('#modal-form').modal('show');
+        $('#modal-form .modal-title').text('Tambah Kategori');
+
+        $('#modal-form form')[0].reset();
+        $('#modal-form form').attr('action', url);
+        $('#modal-form [name=_method]').val('post');
+        $('#modal-form [name=nama_kategori]').focus();
+    }
