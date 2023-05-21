@@ -18,7 +18,7 @@ class SettingTableSeeder extends Seeder
             'nama_perusahaan' => 'Toko Saya',
             'alamat' => 'Perum Graha Candi',
             'telepon' => '082264632685',
-            'tipe_nota' => 1,
+            'tipe_nota' => 1, //ini nota kecil
             'diskon' => 5,
             'path_logo' => 'images/logo.png',
             'path_kartu_member' => 'images/member.png',
