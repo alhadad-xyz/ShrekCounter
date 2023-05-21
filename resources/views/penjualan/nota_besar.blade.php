@@ -81,7 +81,7 @@
             </tr>
             <tr>
                 <td colspan="6" class="text-right"><b>Diskon</b></td>
-                <td class="text-right"><b>{{format_uang($penjualan->diskon)}}</b></td>
+                <td class="text-right"><b>{{format_uang($penjualan->diskon)}}%</b></td>
             </tr>
             <tr>
                 <td colspan="6" class="text-right"><b>Total Bayar</b></td>
