@@ -1,14 +1,20 @@
 <?php
 
-use App\Http\Controllers\KategoriController;
-use App\Http\Controllers\MemberController;
-use App\Http\Controllers\PembelianController;
-use App\Http\Controllers\PembelianDetailController;
-use App\Http\Controllers\PengeluaranController;
-use App\Http\Controllers\PenjualanController;
-use App\Http\Controllers\PenjualanDetailController;
-use App\Http\Controllers\ProdukController;
-use App\Http\Controllers\SupplierController;
+use App\Http\Controllers\{
+    DashboardController,
+    KategoriController,
+    LaporanController,
+    ProdukController,
+    MemberController,
+    PengeluaranController,
+    PembelianController,
+    PembelianDetailController,
+    PenjualanController,
+    PenjualanDetailController,
+    SettingController,
+    SupplierController,
+    UserController,
+};
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -80,4 +86,12 @@ Route::group(['middleware' => 'auth'], function(){
     Route::get('/transaksi/loadform/{diskon}/{total}/{diterima}', [PenjualanDetailController::class, 'loadForm'])->name('transaksi.load_form');
     Route::resource('/transaksi', PenjualanDetailController::class)
         ->except('show');
+
+    // Route::get('/laporan', [LaporanController::class,'index']) ->name('laporan.index');
+    // Route::post('/laporan', [LaporanController::class,'refresh']) ->name('laporan.refresh');
+    // Route::get('/laporan/data/{awal}/{akhir}', [LaporanController::class,'data']) ->name('laporan.data');
+    // Route::get('/laporan/pdf/{awal}/{akhir}', [LaporanController::class,'exportPDF']) ->name('laporan.export_pdf');
+    Route::get('/laporan', [LaporanController::class, 'index'])->name('laporan.index');
+    Route::get('/laporan/data/{awal}/{akhir}', [LaporanController::class, 'data'])->name('laporan.data');
+    Route::get('/laporan/pdf/{awal}/{akhir}', [LaporanController::class, 'exportPDF'])->name('laporan.export_pdf');
 });
