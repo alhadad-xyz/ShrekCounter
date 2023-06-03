@@ -19,7 +19,7 @@
         <div class="box">
             <div class="box-header with-border">
                 <button onclick="updatePeriode()" class="btn btn-success btn-xs btn-flat"><i class="fa fa-plus-circle"></i> Ubah Periode</button>
-                <a href="{{ route('laporan.export_pdf', [$tanggalAwal, $tanggalAkhir]) }}" target="_blank" class="btn btn-info btn-xs btn-flat"><i class="fa fa-plus-circle"></i> Export PDF</a>
+                <a href="{{ route('laporan.export_pdf', [$tanggalAwal, $tanggalAkhir]) }}" target="_blank" class="btn btn-info btn-xs btn-flat"><i class="fa fa-file-excel-o"></i> Export PDF</a>
             </div>
             <div class="box-body table-responsive">
                 <table class="table table-stiped table-bordered">
@@ -122,19 +122,7 @@
             format: 'yyyy-mm-dd',
             autoclose: true
         });
-        $('#modal-form').validator().on('submit', function (e) {
-            if (! e.preventDefault()) {
-                $.post($('#modal-form form').attr('action'), $('#modal-form form').serialize())
-                    .done((response) => {
-                        $('#modal-form').modal('hide');
-                        table.ajax.reload();
-                    })
-                    .fail((errors) => {
-                        alert('Tidak dapat menyimpan data');
-                        return;
-                    });
-            }
-        });
+      
     });
 
     function updatePeriode() {
