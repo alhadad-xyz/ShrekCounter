@@ -7,7 +7,7 @@
           <img src="AdminLTE-2/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>Alexander Pierce</p>
+          <p>{{ Auth::user()->name }}</p>
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>
@@ -23,7 +23,7 @@
             <li class="header">MASTER</li>
             <li>
                 <a href="{{ route('kategori.index') }}">
-                    <i class="fa fa-cube"></i> <span>Katergori</span>
+                    <i class="fa fa-cube"></i> <span>Kategori</span>
                   </a>
               </li>
             <li>
@@ -44,7 +44,7 @@
             <li class="header">TRANSAKSI</li>
             <li>
                 <a href="{{route('pengeluaran.index')}}">
-                    <i class="fa fa-money"></i> <span>Penegeluaran</span>
+                    <i class="fa fa-money"></i> <span>Pengeluaran</span>
                   </a>
               </li>
             <li>
@@ -79,12 +79,12 @@
                       </li>
                       <li class="header">SYSTEM</li>
                       <li>
-                          <a href="#">
+                          <a href="{{ route('user.index')  }}">
                               <i class="fa fa-user"></i> <span>User</span>
                             </a>
                         </li>
                       <li>
-                          <a href="#">
+                          <a href="{{ route('setting.index') }}">
                               <i class="fa fa-cogs"></i> <span>Pengaturan</span>
                             </a>
                         </li>
