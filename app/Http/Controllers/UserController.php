@@ -99,4 +99,14 @@ class UserController extends Controller
 
         return response(null, 204);
     }
+
+    public function profil()
+    {
+        return view('user.profil');
+    }
+
+    public function updateProfil(Request $request)
+    {
+        return $request;
+    }
 }
