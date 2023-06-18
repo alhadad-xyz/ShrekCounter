@@ -126,6 +126,8 @@
           $('[name = alamat]').val(response.alamat);
           // $('[name = diskon]').val(response.diskon);
           $('[name = tipe_nota]').val(response.tipe_nota);
+          $('title').text(response.nama_perusahaan + ' | Pengaturan');
+          $('.logo-lg').text(response.nama_perusahaan);
 
           $('.tampil-logo').html(`<img src="{{ url('/') }}${response.path_logo}" width="200">`);
                 $('.tampil-kartu-member').html(`<img src="{{ url('/') }}${response.path_kartu_member}" width="300">`);
